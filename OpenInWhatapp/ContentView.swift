@@ -42,6 +42,7 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
+        .background(Color(.black))
     }
 
     private func addItem() {
