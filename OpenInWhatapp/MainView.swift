@@ -18,63 +18,21 @@ struct MainView: View {
            
            VStack {
                Spacer()
-               
-               Image("logo")
-                   .resizable()
-                   .scaledToFit()
-                   .frame(minWidth: 100, maxWidth: 200)
-               
+               LogoView()
                Spacer()
-               
-               HStack {
-                   TextField("Phone number", text: $inputText)
-                       .padding()
-                       .background(
-                           RoundedRectangle(cornerRadius: 10)
-                               .stroke(Color("green"), lineWidth: 4)
-                               .background(Color.white.opacity(0.5))
-                       )
-                       .cornerRadius(10)
-//                       .keyboardType(.numberPad)
-                       .padding()
-                       .onTapGesture {
-                                               checkClipboardForPhoneNumber()
-                                           }
-
-                   
-                   if shouldPromptForPaste {
-                     Button("Paste from Clipboard") {
-                         inputText = UIPasteboard.general.string ?? ""
-                         shouldPromptForPaste = false
-                     }
-                   }
-
-                   
-                   Button("Open") {
-                       openWhatsApp(number: inputText)
-                   }
-//                   .frame(minWidth: 150, minHeight: 40)
-                   .padding()
-                   .foregroundColor(.white)
-                   .background(Color("green"))
-                   .cornerRadius(10)
-               }
-               
+               PhoneNumberInputView(inputText: $inputText, 
+                                    shouldPromptForPaste: $shouldPromptForPaste,
+                                    onPaste: handlePaste)
                if !submittedText.isEmpty {
-                   Text("Submitted text: \(submittedText)")
-                       .padding()
+                   SubmittedTextView(submittedText: submittedText)
                }
-               
                Spacer()
            }
            .padding()
        }
         .keyboardResponsive()
-        .background(
-                       LinearGradient(gradient: 
-                                        Gradient(colors: [Color("primary"), Color("secondary")]), startPoint: .top, endPoint: .bottom)
-                   )
-       .edgesIgnoringSafeArea(.all)
+        .background(GradientBackground())
+        .edgesIgnoringSafeArea(.all)
     }
     
     func submitText() {
@@ -84,6 +42,52 @@ struct MainView: View {
           inputText = ""
       }
     
+    func handlePaste() {
+        inputText = UIPasteboard.general.string ?? ""
+        shouldPromptForPaste = false
+    }
+
+}
+
+struct LogoView: View {
+    var body: some View {
+        Image("logo")
+            .resizable()
+            .scaledToFit()
+            .frame(minWidth: 100, maxWidth: 200)
+    }
+}
+
+struct PhoneNumberInputView: View {
+    @Binding var inputText: String
+    @Binding var shouldPromptForPaste: Bool
+    var onPaste: () -> Void
+
+    var body: some View {
+        HStack {
+            TextField("Phone number", text: $inputText)
+                .padding()
+                .keyboardType(.numberPad)
+                .background(TextFieldBackground())
+                .cornerRadius(10)
+                .padding()
+                .onTapGesture {
+                    checkClipboardForPhoneNumber()
+                }
+
+            if shouldPromptForPaste {
+                Button("Paste from Clipboard", action: onPaste)
+                    .buttonStyle(PasteButtonStyle())
+            }
+
+            Button("Open", action: {
+                openWhatsApp(number: inputText)
+            })
+            .buttonStyle(OpenButtonStyle())
+        }
+        
+    }
+
     func openWhatsApp(number: String) {
     
         let parsedNumber = parseNumber(number: number)
@@ -121,12 +125,55 @@ struct MainView: View {
        }
 }
 
-#Preview {
-    MainView()
+struct SubmittedTextView: View {
+    let submittedText: String
+
+    var body: some View {
+        Text("Submitted text: \(submittedText)")
+            .padding()
+    }
+}
+
+struct TextFieldBackground: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .stroke(Color("green"), lineWidth: 4)
+            .background(Color.white.opacity(0.5))
+    }
+}
+
+struct PasteButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .foregroundColor(.white)
+            .background(Color("green"))
+            .cornerRadius(10)
+    }
+}
+
+struct OpenButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .foregroundColor(.white)
+            .background(Color("green"))
+            .cornerRadius(10)
+    }
+}
+
+struct GradientBackground: View {
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: [Color("primary"), Color("secondary")]), startPoint: .top, endPoint: .bottom)
+    }
 }
 
 extension View {
     func keyboardResponsive() -> some View {
         self.modifier(KeyboardResponsiveModifier())
     }
+}
+
+#Preview {
+    MainView()
 }
