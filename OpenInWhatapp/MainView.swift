@@ -117,8 +117,8 @@ struct PhoneNumberInputView: View {
            }
 
            // Check if the clipboard text contains a phone number format
-           let phoneNumberRegex = try? NSRegularExpression(pattern: "^\\+?[0-9]+$")
-           if let regex = phoneNumberRegex, regex.numberOfMatches(in: clipboardText, range: NSRange(location: 0, length: clipboardText.count)) > 0 {
+            let phoneNumberRegex = try? NSRegularExpression(pattern: "^\\+?[0-9\\s\\(\\)\\-]+$")
+            if let regex = phoneNumberRegex, regex.numberOfMatches(in: clipboardText, range: NSRange(location: 0, length: clipboardText.count)) > 0 {
                shouldPromptForPaste = true
                print("found number in clipboard, activating shouldPromptForPaste")
            }
@@ -146,9 +146,6 @@ struct PasteButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .foregroundColor(.white)
-            .background(Color("green"))
-            .cornerRadius(10)
     }
 }
 
