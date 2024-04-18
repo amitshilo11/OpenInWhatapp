@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "DALL·E-2024-04-06-03.25.41---Create-a-minimalist-logo-for-a-mobile-application-that-facilitates-direct-messaging-in-WhatsApp-with-just-one-click,-without-saving-the-contact.-The-d.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
