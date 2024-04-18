@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5389C5F52BC0CFB5006243E6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5389C5F42BC0CFB5006243E6 /* MainView.swift */; };
+		5389C5F62BC0CFB5006243E6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5389C5F42BC0CFB5006243E6 /* MainView.swift */; };
+		5389C5F72BC0CFB5006243E6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5389C5F42BC0CFB5006243E6 /* MainView.swift */; };
 		53EED8482BB4CBB100E519F7 /* OpenInWhatappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EED8472BB4CBB100E519F7 /* OpenInWhatappApp.swift */; };
 		53EED84A2BB4CBB100E519F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EED8492BB4CBB100E519F7 /* ContentView.swift */; };
 		53EED84C2BB4CBB100E519F7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EED84B2BB4CBB100E519F7 /* Item.swift */; };
@@ -15,6 +18,7 @@
 		53EED85C2BB4CBB200E519F7 /* OpenInWhatappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EED85B2BB4CBB200E519F7 /* OpenInWhatappTests.swift */; };
 		53EED8662BB4CBB200E519F7 /* OpenInWhatappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EED8652BB4CBB200E519F7 /* OpenInWhatappUITests.swift */; };
 		53EED8682BB4CBB200E519F7 /* OpenInWhatappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EED8672BB4CBB200E519F7 /* OpenInWhatappUITestsLaunchTests.swift */; };
+		53F8E1192BC2E30400DEFCBB /* KeyboardResponsiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8E1182BC2E30400DEFCBB /* KeyboardResponsiveModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5389C5F42BC0CFB5006243E6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		53EED8442BB4CBB100E519F7 /* OpenInWhatapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenInWhatapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EED8472BB4CBB100E519F7 /* OpenInWhatappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenInWhatappApp.swift; sourceTree = "<group>"; };
 		53EED8492BB4CBB100E519F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		53EED8612BB4CBB200E519F7 /* OpenInWhatappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenInWhatappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EED8652BB4CBB200E519F7 /* OpenInWhatappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenInWhatappUITests.swift; sourceTree = "<group>"; };
 		53EED8672BB4CBB200E519F7 /* OpenInWhatappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenInWhatappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		53F8E1182BC2E30400DEFCBB /* KeyboardResponsiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsiveModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,8 @@
 				53EED84D2BB4CBB200E519F7 /* Assets.xcassets */,
 				53EED84F2BB4CBB200E519F7 /* OpenInWhatapp.entitlements */,
 				53EED8502BB4CBB200E519F7 /* Preview Content */,
+				5389C5F42BC0CFB5006243E6 /* MainView.swift */,
+				53F8E1182BC2E30400DEFCBB /* KeyboardResponsiveModifier.swift */,
 			);
 			path = OpenInWhatapp;
 			sourceTree = "<group>";
@@ -262,7 +270,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53F8E1192BC2E30400DEFCBB /* KeyboardResponsiveModifier.swift in Sources */,
 				53EED84A2BB4CBB100E519F7 /* ContentView.swift in Sources */,
+				5389C5F52BC0CFB5006243E6 /* MainView.swift in Sources */,
 				53EED84C2BB4CBB100E519F7 /* Item.swift in Sources */,
 				53EED8482BB4CBB100E519F7 /* OpenInWhatappApp.swift in Sources */,
 			);
@@ -273,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53EED85C2BB4CBB200E519F7 /* OpenInWhatappTests.swift in Sources */,
+				5389C5F62BC0CFB5006243E6 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53EED8662BB4CBB200E519F7 /* OpenInWhatappUITests.swift in Sources */,
+				5389C5F72BC0CFB5006243E6 /* MainView.swift in Sources */,
 				53EED8682BB4CBB200E519F7 /* OpenInWhatappUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
